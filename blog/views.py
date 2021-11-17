@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from .models import Post
+from .models import Post, Category
 
 
 def main(request):
@@ -13,8 +13,10 @@ def about(request):
     return render(request, "about.html", {"about": "active"})
 
 
-def post(request):
-    return render(request, "post.html", {"post": "active"})
+def post(request, pk):
+    post = Post.objects.get(pk=pk)
+    categories = Category.objects.all()
+    return render(request, "post.html", {"post": post, "categories": categories})
 
 
 def contact(request):
