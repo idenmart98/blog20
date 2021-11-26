@@ -40,16 +40,24 @@
                                     </div>                                
                                 </div>
                             {% endfor %}
-                            <form action="" class="mb-5 tm-comment-form">
+                            <form action="{% url 'blog:comment_create' %}" method="post">
+                                {% csrf_token %}
                                 <h2 class="tm-color-primary tm-post-title mb-4">Your comment</h2>
                                 <div class="mb-4">
-                                    <input class="form-control" name="name" type="text">
+                                    <label for="author" class="my_class">{{ comment_form.author.label }}</label>
+                                    {{comment_form.author}}
                                 </div>
                                 <div class="mb-4">
-                                    <input class="form-control" name="email" type="text">
+                                    <label for="image" class="my_class">{{ comment_form.image.label }}</label>
+                                    {{comment_form.image}}
                                 </div>
                                 <div class="mb-4">
-                                    <textarea class="form-control" name="message" rows="6"></textarea>
+                                    <label for="description" class="my_class">{{ comment_form.description.label }}</label>
+                                    {{comment_form.description}}
+                                </div>
+                                <div class="mb-4">
+                                    <label for="description" class="my_class">{{ comment_form.post.label }}</label>
+                                    {{comment_form.post}}
                                 </div>
                                 <div class="text-right">
                                     <button class="tm-btn tm-btn-primary tm-btn-small">Submit</button>                        

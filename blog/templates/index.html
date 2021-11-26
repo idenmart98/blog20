@@ -47,7 +47,7 @@
                         </div>
                         <hr>
                         <div class="d-flex justify-content-between">
-                            <span>96 comments</span>
+                            <span>{{ post.comment_set.all | length }} comments</span>
                             <span>by {{post.author}}</span>
                         </div>
                     </article>
